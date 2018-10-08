@@ -3,8 +3,10 @@
 #include"../include/head.h"
 #include"../lib/catch.hpp"
 TEST_CASE("Função contaLinhas", "[contaLinhas]") {
-  FILE* pontArqu;
   SECTION("Arquivo vazio") {
     REQUIRE(contaLinhas("testFiles/arquivo00.txt") == 0 );
+  }
+    SECTION("Arquivo com linhas seguida") {
+    REQUIRE(contaLinhas("testFiles/arquivo01.txt") == 10 );
   }
 }
