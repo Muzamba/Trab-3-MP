@@ -4,9 +4,12 @@
 #include"../lib/catch.hpp"
 TEST_CASE("Função contaLinhas", "[contaLinhas]") {
   SECTION("Arquivo vazio") {
-    REQUIRE(contaLinhas("testFiles/arquivo00.txt") == 0 );
+    REQUIRE(contaLinhas("testFiles/arquivo00.txt") == 0);
   }
-    SECTION("Arquivo com linhas seguida") {
-    REQUIRE(contaLinhas("testFiles/arquivo01.txt") == 10 );
+  SECTION("Arquivo com linhas seguidas") {
+    REQUIRE(contaLinhas("testFiles/arquivo01.txt") == 10);
+  }
+  SECTION("Arquivo com linhas intercaladas") {
+    REQUIRE(contaLinhas("testFiles/arquivo02.txt") == 10);
   }
 }
