@@ -12,4 +12,7 @@ TEST_CASE("Função contaLinhas", "[contaLinhas]") {
   SECTION("Arquivo com linhas intercaladas") {
     REQUIRE(contaLinhas("testFiles/arquivo02.txt") == 10);
   }
+  SECTION("Arquivo com linhas em branco com barra de espaço") {
+    REQUIRE(contaLinhas("testFiles/arquivo03.txt") == 8);
+  }
 }
