@@ -15,4 +15,7 @@ TEST_CASE("Função contaLinhas", "[contaLinhas]") {
   SECTION("Arquivo com linhas em branco com barra de espaço") {
     REQUIRE(contaLinhas("testFiles/arquivo03.txt") == 8);
   }
+  SECTION("Arquivo com linhas comentadas com //") {
+    REQUIRE(contaLinhas("testFiles/arquivo04.txt") == 10);
+  }
 }
