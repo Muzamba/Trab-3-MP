@@ -8,8 +8,19 @@ unsigned int contaLinhas(const char* nomeArquivo) {
   pont = fopen(nomeArquivo , "r");
   letra = fgetc(pont);  // preparando o ponteiro para entrar no while
   while (!feof(pont)) {
+    if (letra == '/') {
+      letra = fgetc(pont);
+      if (letra == '*') {
+        if (pulaComentario(pont)) {
+          linhaLida = 0;
+        }
+        letra = fgetc(pont);
+      } else {
+        fseek(pont, -1, 1);
+      }
+    }
     if (letra != '\n') {
-      if (linhaLida == 0 && letra != ' ') {  // verificando a possibilidade de ser uma linha valida
+      if (linhaLida == 0 && letra != ' ') {  // verificando se é uma linha
         if (letra == '/') {
           letra = fgetc(pont);
           if (letra == '/') {
@@ -31,4 +42,22 @@ unsigned int contaLinhas(const char* nomeArquivo) {
   }
   fclose(pont);
   return cont;
+}
+
+int pulaComentario(FILE* pont) {
+  char letra;
+  int flag = 0;
+  while (1) {
+    letra = fgetc(pont);
+    if (letra == '*') {
+      letra = fgetc(pont);
+      if (letra == '/') {
+        break;
+      }
+      fseek(pont, -1, 1);
+    } else if (letra == '\n') {
+      flag = 1;
+    }
+  }
+  return flag;
 }

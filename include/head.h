@@ -2,3 +2,5 @@
 #include<iostream>
 
 unsigned int contaLinhas(const char* nomeArquivo);
+
+int pulaComentario(FILE* pont);
