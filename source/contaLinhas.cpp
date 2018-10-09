@@ -12,7 +12,7 @@ unsigned int contaLinhas(const char* nomeArquivo) {
       if (linhaLida == 0 && letra != ' ') {  // verificando a possibilidade de ser uma linha valida
         if (letra == '/') {
           letra = fgetc(pont);
-          if (letra = '/') {
+          if (letra == '/') {
             linhaLida = 1;
           } else {
             cont++;
