@@ -1,0 +1,6 @@
+*.o
+*.pdf
+*.odt
+testeContaLinhas
+.~lock.Teste.odt#
+*.gcno

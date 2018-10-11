@@ -21,4 +21,7 @@ TEST_CASE("Função contaLinhas", "[contaLinhas]") {
   SECTION("Arquivo com linhas comentadas com /* */") {
     REQUIRE(contaLinhas("testFiles/arquivo05.txt") == 4);
   }
+  SECTION("Arquivo com linhas com /* */ dentro de aspas e tab") {
+    REQUIRE(contaLinhas("testFiles/arquivo06.txt") == 11);
+  }
 }
