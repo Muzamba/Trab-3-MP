@@ -1,7 +1,21 @@
+/**
+*@file contaLinhas.cpp
+*
+*@brief Funções
+*
+*@author Ariel Batista da Silva, matrícula 17/0099776
+*
+*/
 // Copyright "2018" Ariel Batista
 #include"../include/head.h"
-/* A função contalinhas  
-
+/**
+*@brief Conta Linhas
+*Função que conta quantas linhas de código (sem considerar comentario) tem
+*determinado arquivo.
+* 
+*@param nomeArquivo- String representando o nome do arquivo.
+*
+*@return int- Retorna o número de linhas presentes no arquivo.
 */
 unsigned int contaLinhas(const char* NomeArquivo) {
   unsigned int cont = 0;
@@ -55,6 +69,16 @@ unsigned int contaLinhas(const char* NomeArquivo) {
   pont = NULL;
   return cont;
 }
+/**
+*@brief Função para ignorar os comentários
+*Função que faz o ponteiro de arquivo andar até o final do 
+*comentário do tipo /*.
+*
+*@param pont- Ponteiro para o arquivo ja aberto.
+*
+*@return flag- Retorna 1 se durante o avanço do comentário houve
+*quebra de linha e 0 se não houve.
+*/
 int pulaComentario(FILE* pont) {
   char letra;
   int flag = FALSE;
@@ -75,6 +99,14 @@ int pulaComentario(FILE* pont) {
   }
   return flag;
 }
+/**
+*@brief Função para ignorar o que estiver dentro de "".
+*Função que faz o ponteiro de arquivo andar até o final da "".
+*
+*@param pont- Ponteiro para o arquivo ja aberto.
+*
+*@return flag- Retorna 1 se deu certo e -1 se falhou.
+*/
 int pulaAspas (FILE* pont) {
   char letra;
   letra = fgetc(pont);
